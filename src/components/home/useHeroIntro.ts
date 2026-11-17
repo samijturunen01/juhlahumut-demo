@@ -134,19 +134,24 @@ export function useHeroIntro(scope: RefObject<HTMLElement | null>) {
 
       // Never make anyone wait: any intent to move on completes the intro at once.
       const skip = () => tl.progress(1);
+      // Mobile browsers fire scroll/resize on their own while loading (URL bar, scroll restoration),
+      // so only real movement counts: an actual scroll offset, or a genuine change of width.
+      const startWidth = window.innerWidth;
+      const onScroll = () => window.scrollY > 8 && skip();
+      const onResize = () => Math.abs(window.innerWidth - startWidth) > 40 && skip();
       const opts: AddEventListenerOptions = { passive: true, once: true };
       window.addEventListener('wheel', skip, opts);
       window.addEventListener('touchmove', skip, opts);
       window.addEventListener('keydown', skip, opts);
-      window.addEventListener('scroll', skip, opts);
-      window.addEventListener('resize', skip, opts);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onResize, { passive: true });
 
       return () => {
         window.removeEventListener('wheel', skip);
         window.removeEventListener('touchmove', skip);
         window.removeEventListener('keydown', skip);
-        window.removeEventListener('scroll', skip);
-        window.removeEventListener('resize', skip);
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onResize);
         // If the visitor navigated away mid-intro, release the held states so the header mark is
         // visible on the next page. (Checked a tick later: React's StrictMode re-runs effects on
         // mount, and in that case the hero is still in the document and the intro simply restarts.)

@@ -100,11 +100,16 @@ export function QuoteForm({ today }: QuoteFormProps) {
       return;
     }
     setStatus({ kind: result.status });
-    window.requestAnimationFrame(() => {
-      formTopRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
-      resultRef.current?.focus({ preventScroll: true });
-    });
   };
+
+  // Once the result is on screen, bring it into view and move focus to its heading,
+  // so screen-reader users hear the outcome immediately.
+  const done = status.kind === 'demo' || status.kind === 'sent';
+  useEffect(() => {
+    if (!done) return;
+    formTopRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    resultRef.current?.focus({ preventScroll: true });
+  }, [done]);
 
   const reset = () => {
     setValues(emptyQuoteRequest);
