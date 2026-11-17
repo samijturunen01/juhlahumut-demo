@@ -4,7 +4,7 @@
  * Used automatically when the authentic logo folder (../authentic) is not part
  * of the build – for example while the right to republish the company's logo
  * is still unconfirmed. It contains NO logo artwork: only the company name set
- * in the site's display typeface, and a plain amber disc. It exposes the same
+ * in the site's display typeface, and a plain amber ring of light. It exposes the same
  * layers and data attributes as the authentic art, so the intro animation and
  * every layout work unchanged.
  */
@@ -38,9 +38,15 @@ export function LogoSprite() {
   return (
     <svg width="0" height="0" aria-hidden="true" focusable="false" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
       <defs>
-        <linearGradient id="jh-disc-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#ffe9d2" />
-          <stop offset="1" stopColor="#f47b20" />
+        <radialGradient id="jh-disc-fill" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#f47b20" stopOpacity="0.42" />
+          <stop offset="0.7" stopColor="#d85d0c" stopOpacity="0.16" />
+          <stop offset="1" stopColor="#a23e06" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="jh-ring-stroke" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#ffd2a8" />
+          <stop offset="0.55" stopColor="#f47b20" />
+          <stop offset="1" stopColor="#d85d0c" />
         </linearGradient>
         <linearGradient id="jh-sweep-fill" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0" stopColor="#fff" />
@@ -70,7 +76,18 @@ export function LogoFull({ className, title = 'Juhlahumut', decorative = false, 
         </mask>
       </defs>
       <g data-logo="disc">
-        <ellipse cx="444" cy="380" rx="330" ry="104" fill="url(#jh-disc-fill)" transform="rotate(-23.65 444 380)" opacity="0.92" />
+        <ellipse cx="444" cy="380" rx="372" ry="140" fill="url(#jh-disc-fill)" transform="rotate(-23.65 444 380)" />
+        <ellipse
+          cx="444"
+          cy="380"
+          rx="330"
+          ry="104"
+          fill="none"
+          stroke="url(#jh-ring-stroke)"
+          strokeWidth="5"
+          transform="rotate(-23.65 444 380)"
+          style={{ filter: 'drop-shadow(0 0 10px rgb(244 123 32 / 0.8))' }}
+        />
       </g>
       <g mask={`url(#${maskId})`}>
         <g data-logo="script" className="neon-glow">

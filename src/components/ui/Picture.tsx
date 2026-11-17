@@ -13,6 +13,12 @@ interface PictureProps {
   priority?: boolean;
   /** CSS object-position, for art-directed crops inside a fixed frame. */
   position?: string;
+  /**
+   * Aspect ratio (width / height) of the frame the photo is cover-cropped into. When the photo is
+   * wider than its frame, only part of it is visible, so a larger file is needed for the same
+   * sharpness – the `sizes` hint is scaled up accordingly.
+   */
+  frameAspect?: number;
   style?: CSSProperties;
 }
 
@@ -21,8 +27,9 @@ interface PictureProps {
  * AVIF first, WebP fallback; intrinsic width/height reserve the space, and a
  * 16px blurred preview of the same photo sits behind it until it has loaded.
  */
-export function Picture({ slug, alt, sizes, className, imgClassName, priority = false, position, style }: PictureProps) {
+export function Picture({ slug, alt, sizes, className, imgClassName, priority = false, position, style, frameAspect }: PictureProps) {
   const meta = imageManifest[slug];
+  sizes = frameAspect ? scaleSizes(sizes, meta.width / meta.height / frameAspect) : sizes;
   return (
     <picture className={className} style={style}>
       <source type="image/avif" srcSet={imageSrcSet(slug, 'avif')} sizes={sizes} />
@@ -46,4 +53,11 @@ export function Picture({ slug, alt, sizes, className, imgClassName, priority = 
       />
     </picture>
   );
+}
+
+/** Multiplies every vw / px length in a `sizes` attribute by `factor` (only ever upwards). */
+function scaleSizes(sizes: string, factor: number): string {
+  if (factor <= 1.05) return sizes;
+  // Lengths inside media conditions, e.g. "(min-width: 1024px)", are left alone.
+  return sizes.replace(/(\d+(?:\.\d+)?)(vw|px)(?![^(]*\))/g, (_, n: string, unit: string) => `${Math.round(Number(n) * factor)}${unit}`);
 }

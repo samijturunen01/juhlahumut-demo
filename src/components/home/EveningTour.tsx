@@ -103,7 +103,7 @@ export function EveningTour() {
 
               <div className="mt-12 hidden lg:block" aria-hidden="true">
                 <div className="numeral h-[1em] overflow-hidden text-[clamp(4rem,7.2vw,7.5rem)] leading-none text-cream">
-                  <div className="transition-transform duration-[900ms] ease-out-expo" style={{ transform: `translateY(-${active * 100}%)` }}>
+                  <div className="transition-transform duration-[900ms] ease-out-expo" style={{ transform: `translateY(-${active}em)` }}>
                     {chapters.map((c) => (
                       <div key={c.id} className="h-[1em]">
                         {c.time}
@@ -164,6 +164,7 @@ export function EveningTour() {
                           slug={photo.slug}
                           alt={photo.alt}
                           position={photo.position}
+                          frameAspect={isPrimary ? 1.5 : 0.8}
                           sizes={isPrimary ? '(min-width: 1024px) 40vw, (min-width: 640px) 58vw, 100vw' : '(min-width: 1024px) 24vw, 36vw'}
                         />
                       </div>

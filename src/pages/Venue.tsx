@@ -33,7 +33,7 @@ export default function Venue() {
           </>
         }
         lede="Tilaisuus on aina yksityinen. Alakerrassa ruokailu- ja seurustelutilat sekä saunaosasto, yläkerrassa pelitila – noin 10–50 hengen juhliin ja muihin yksityistilaisuuksiin."
-        image={{ slug: 'sali-takka-portaat', alt: 'Juhlahumujen sali: puukatto, avotakka, tarjoilulinjasto ja portaat yläkertaan', position: '40% 50%' }}
+        image={{ slug: 'sali-ilta-aurinko', alt: 'Juhlahumujen sali ilta-auringossa: avotakka, sohvaryhmä ja suuret ikkunat terassille', position: '55% 50%' }}
       >
         <nav aria-label="Tilat tällä sivulla">
           <ul className="flex flex-wrap gap-2">
@@ -158,6 +158,7 @@ export default function Venue() {
                     <PhotoButton
                       photo={main}
                       onOpen={() => setViewer({ space: space.id, index: 0 })}
+                      frameAspect={4 / 3}
                       className={cx('aspect-[4/3] sm:aspect-[3/2]', flip ? 'rounded-tr-[clamp(3rem,9vw,8rem)]' : 'rounded-tl-[clamp(3rem,9vw,8rem)]')}
                       sizes="(min-width: 1024px) 55vw, 100vw"
                     />
@@ -169,6 +170,7 @@ export default function Venue() {
                           key={photo.slug}
                           photo={photo}
                           onOpen={() => setViewer({ space: space.id, index: i + 1 })}
+                          frameAspect={0.8}
                           className={cx('aspect-[4/5]', rest.length === 3 && i === 2 && 'max-sm:col-span-2 max-sm:aspect-[3/2]')}
                           sizes="(min-width: 1024px) 18vw, 45vw"
                           delay={0.08 * (i + 1)}
@@ -269,12 +271,14 @@ function PhotoButton({
   className,
   sizes,
   delay = 0,
+  frameAspect,
 }: {
   photo: Space['photos'][number];
   onOpen: () => void;
   className?: string;
   sizes: string;
   delay?: number;
+  frameAspect?: number;
 }) {
   return (
     <div className={cx('frame', className)} data-reveal="mask" data-reveal-delay={String(delay)}>
@@ -283,6 +287,7 @@ function PhotoButton({
           slug={photo.slug}
           alt={photo.alt}
           sizes={sizes}
+          frameAspect={frameAspect}
           position={photo.position}
           className="block size-full"
           imgClassName="size-full object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.04]"

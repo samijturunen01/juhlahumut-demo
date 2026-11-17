@@ -211,10 +211,10 @@ function MenuRow({ menu, defaultOpen }: { menu: Menu; defaultOpen: boolean }) {
           onClick={() => setOpen((v) => !v)}
           className="group grid w-full grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 py-6 text-left sm:grid-cols-[minmax(9rem,auto)_1fr_auto_auto] sm:py-8"
         >
-          <span className="font-display text-[clamp(1.6rem,1.2rem+1.6vw,2.6rem)] font-[340] leading-none tracking-tight transition-colors group-hover:text-rust">
+          <span className="col-start-1 row-start-1 font-display text-[clamp(1.6rem,1.2rem+1.6vw,2.6rem)] font-[340] leading-none tracking-tight transition-colors group-hover:text-rust">
             {menu.name}
           </span>
-          <span className="col-span-2 row-start-2 text-[0.98rem] italic leading-snug text-ash sm:col-span-1 sm:row-start-1 sm:font-display sm:text-[1.15rem]">
+          <span className="col-span-2 col-start-1 row-start-2 text-[0.98rem] italic leading-snug text-ash sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:font-display sm:text-[1.15rem]">
             {menu.kicker}
             {menu.season && (
               <span className="ml-2 inline-flex translate-y-[-1px] items-center gap-1 rounded-full bg-rust/10 px-2.5 py-0.5 align-middle font-sans text-[0.7rem] font-semibold not-italic uppercase tracking-[0.12em] text-rust">
@@ -230,7 +230,7 @@ function MenuRow({ menu, defaultOpen }: { menu: Menu; defaultOpen: boolean }) {
           <span
             aria-hidden="true"
             className={cx(
-              'hidden size-11 place-items-center rounded-full border border-(--line-strong) transition-[transform,background-color,color] duration-500 ease-out-expo group-hover:border-ink sm:grid',
+              'col-start-4 row-start-1 hidden size-11 place-items-center rounded-full border border-(--line-strong) transition-[transform,background-color,color] duration-500 ease-out-expo group-hover:border-ink sm:grid',
               open && 'rotate-45 bg-ink text-cream',
             )}
           >

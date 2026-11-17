@@ -37,7 +37,7 @@ export function PageHero({ eyebrow, title, lede, image, children }: PageHeroProp
         {image && (
           <div className="lg:col-span-5">
             <div className="frame aspect-[4/3] rounded-tl-[clamp(3rem,9vw,7.5rem)] lg:aspect-[5/4]" data-reveal="mask">
-              <Picture slug={image.slug} alt={image.alt} position={image.position} priority sizes="(min-width: 1024px) 40vw, 100vw" />
+              <Picture slug={image.slug} alt={image.alt} position={image.position} priority sizes="(min-width: 1024px) 40vw, 100vw" frameAspect={1.25} />
             </div>
           </div>
         )}

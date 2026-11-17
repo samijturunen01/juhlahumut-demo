@@ -100,7 +100,8 @@ export default function Contact() {
                 imgClassName="size-full object-cover"
                 position="60% 50%"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-night via-night/40 to-transparent" aria-hidden="true" />
+              <div className="absolute inset-0 bg-night/35" aria-hidden="true" />
+              <div className="absolute inset-0 bg-linear-to-t from-night via-night/75 to-night/10" aria-hidden="true" />
               <div className="relative flex min-h-[20rem] flex-col justify-end gap-5 p-7 sm:p-10">
                 <p className="flex items-center gap-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-cream/85">
                   <Car aria-hidden="true" className="size-4 text-ember" />

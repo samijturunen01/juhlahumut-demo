@@ -40,7 +40,7 @@ export function Hero() {
 
           <figure data-intro="aside" className="absolute bottom-6 right-4 hidden w-36 sm:block lg:bottom-10 lg:right-8 lg:w-44 xl:w-52">
             <div className="frame aspect-[4/5] rounded-md shadow-2xl shadow-black/70 ring-4 ring-night">
-              <Picture slug="sauna" alt="Tunnelmavalaistu sauna" sizes="208px" position="50% 60%" priority />
+              <Picture slug="sauna" alt="Tunnelmavalaistu sauna" sizes="208px" frameAspect={0.8} position="50% 60%" priority />
               <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-night/90 to-transparent px-3 pb-2.5 pt-8 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-cream/90">
                 Sauna
               </figcaption>

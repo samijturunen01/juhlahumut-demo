@@ -41,12 +41,13 @@ export function Welcome() {
                 slug="sali-sohvat-takka"
                 alt="Sohvaryhmä ja pöytä avotakan äärellä ilta-auringossa"
                 sizes="(min-width: 1024px) 38vw, 86vw"
+                frameAspect={0.8}
                 position="42% 50%"
               />
             </div>
             <div className="absolute -bottom-8 left-0 w-[46%] lg:-left-16 lg:w-[52%]" data-parallax="0.22">
               <div className="frame aspect-[4/3] shadow-2xl shadow-ink/25 ring-[6px] ring-cream" data-reveal="mask" data-reveal-delay="0.25">
-                <Picture slug="sali-pyorea-poyta" alt="Pyöreä pöytä salin ikkunoiden edessä" sizes="(min-width: 1024px) 20vw, 46vw" />
+                <Picture slug="sali-pyorea-poyta" alt="Pyöreä pöytä salin ikkunoiden edessä" sizes="(min-width: 1024px) 20vw, 46vw" frameAspect={4 / 3} />
               </div>
             </div>
           </div>

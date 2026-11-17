@@ -264,12 +264,12 @@ export default function Pricing() {
                   <dd className="mt-2 text-[0.95rem] leading-relaxed text-ash">{rentalTerms.cancellation.text}</dd>
                   <dd className="mt-5 grid grid-cols-2 gap-3 text-center">
                     <span className="rounded-xl bg-[#fbf6ee] px-3 py-4 ring-1 ring-ink/10">
-                      <span className="numeral block text-3xl leading-none">≥ {rentalTerms.cancellation.freeUntilDays} vrk</span>
-                      <span className="mt-1.5 block text-[0.78rem] text-ash">ennen: peruutus ilman varausmaksua</span>
+                      <span className="block text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-ash">Peruutus ≥ {rentalTerms.cancellation.freeUntilDays} vrk ennen</span>
+                      <span className="mt-2 block font-display text-[1.35rem] leading-tight tracking-tight">ei varausmaksua</span>
                     </span>
                     <span className="rounded-xl bg-ink px-3 py-4 text-cream">
-                      <span className="numeral block text-3xl leading-none">{formatEuro(rentalTerms.cancellation.lateFee)}</span>
-                      <span className="mt-1.5 block text-[0.78rem] text-smoke">varausmaksu myöhemmin perutessa</span>
+                      <span className="block text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-smoke">Myöhemmin</span>
+                      <span className="mt-2 block font-display text-[1.35rem] leading-tight tracking-tight">varausmaksu {formatEuro(rentalTerms.cancellation.lateFee)}</span>
                     </span>
                   </dd>
                 </div>

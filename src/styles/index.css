@@ -233,6 +233,7 @@
 
   .eyebrow {
     display: inline-flex;
+    font-family: var(--font-sans);
     align-items: center;
     gap: 0.75rem;
     font-size: 0.72rem;

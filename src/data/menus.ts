@@ -214,7 +214,7 @@ export const cateringNotes = {
    * The current site states "Hinnat / hlö, sis. alv 14 %". That VAT rate is outdated,
    * so it is NOT repeated here. The owner must confirm current tax-inclusive prices.
    */
-  pricing: 'Hinnat ovat henkilöä kohden ja nykyisen sivuston mukaiset. Lopullinen hinta ja arvonlisävero vahvistetaan tarjouksessa.',
+  pricing: 'Hinnat ovat henkilöä kohden. Lopullinen hinta ja arvonlisävero vahvistetaan tarjouksessa.',
 } as const;
 
 export const menuPriceRange = {

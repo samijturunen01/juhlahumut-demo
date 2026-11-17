@@ -78,7 +78,7 @@ export function Occasions() {
                   <span className="hidden text-[0.98rem] leading-snug text-ash lg:block">{occasion.line}</span>
                   <span className="flex items-center gap-4">
                     <span className="frame block size-14 shrink-0 rounded-full sm:size-16 lg:hidden" aria-hidden="true">
-                      <Picture slug={occasion.image} alt="" sizes="64px" position={occasion.imagePosition} />
+                      <Picture slug={occasion.image} alt="" sizes="64px" frameAspect={1} position={occasion.imagePosition} />
                     </span>
                     <ArrowUpRight
                       aria-hidden="true"
@@ -102,7 +102,7 @@ export function Occasions() {
             <div className="frame aspect-[4/5] rotate-3 rounded-lg shadow-2xl shadow-ink/40">
               {occasions.map((occasion, index) => (
                 <div key={occasion.id} className={cx('absolute inset-0 transition-opacity duration-500', active === index ? 'opacity-100' : 'opacity-0')}>
-                  <Picture slug={occasion.image} alt="" sizes="352px" position={occasion.imagePosition} className="block size-full" imgClassName="size-full object-cover" />
+                  <Picture slug={occasion.image} alt="" sizes="352px" frameAspect={0.8} position={occasion.imagePosition} className="block size-full" imgClassName="size-full object-cover" />
                 </div>
               ))}
             </div>
