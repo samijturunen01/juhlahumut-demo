@@ -76,7 +76,8 @@ function head(page, routePath, { notFound = false } = {}) {
     ALLOW_INDEXING && !notFound ? '<meta name="robots" content="index,follow">' : '<meta name="robots" content="noindex,nofollow">',
     `<meta property="og:type" content="website">`,
     `<meta property="og:locale" content="fi_FI">`,
-    `<meta property="og:site_name" content="${esc(company.name)}">`,
+    // Link previews of the demo must not pass for the official site.
+    `<meta property="og:site_name" content="${esc(ALLOW_INDEXING ? company.name : `${company.name} – konseptidemo`)}">`,
     `<meta property="og:title" content="${esc(page.title)}">`,
     `<meta property="og:description" content="${esc(page.description)}">`,
     `<meta property="og:image" content="${esc(abs('/images/og-kuva.jpg'))}">`,
