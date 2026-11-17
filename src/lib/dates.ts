@@ -43,16 +43,21 @@ export function monthGrid(year: number, month: number): { date: Date; inMonth: b
   return weeks;
 }
 
-const longDate = new Intl.DateTimeFormat('fi-FI', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-const shortDate = new Intl.DateTimeFormat('fi-FI', { weekday: 'short', day: 'numeric', month: 'numeric', year: 'numeric' });
-const monthYear = new Intl.DateTimeFormat('fi-FI', { month: 'long', year: 'numeric' });
-
-/** "lauantai 12. joulukuuta 2026" */
-export const formatLongDate = (d: Date): string => longDate.format(d);
-/** "la 12.12.2026" */
-export const formatShortDate = (d: Date): string => shortDate.format(d);
-/** "joulukuu 2026" */
-export const formatMonthYear = (d: Date): string => monthYear.format(d);
-
 export const WEEKDAYS_SHORT = ['ma', 'ti', 'ke', 'to', 'pe', 'la', 'su'] as const;
 export const WEEKDAYS_LONG = ['maanantai', 'tiistai', 'keskiviikko', 'torstai', 'perjantai', 'lauantai', 'sunnuntai'] as const;
+
+const MONTHS = ['tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu'] as const;
+/** Partitive month names, as used in dates: "12. joulukuuta". */
+const MONTHS_PARTITIVE = MONTHS.map((m) => `${m}ta`);
+
+/*
+ * Formatting is done by hand rather than with Intl: ICU versions disagree on Finnish
+ * date forms ("lauantai" vs "lauantaina"), and the text must be identical in every browser.
+ */
+
+/** "lauantai 12. joulukuuta 2026" */
+export const formatLongDate = (d: Date): string => `${WEEKDAYS_LONG[weekdayIndex(d)]} ${d.getDate()}. ${MONTHS_PARTITIVE[d.getMonth()]} ${d.getFullYear()}`;
+/** "la 12.12.2026" */
+export const formatShortDate = (d: Date): string => `${WEEKDAYS_SHORT[weekdayIndex(d)]} ${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
+/** "joulukuu 2026" */
+export const formatMonthYear = (d: Date): string => `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;

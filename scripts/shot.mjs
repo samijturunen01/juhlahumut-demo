@@ -1,3 +1,4 @@
+/* global window, document */
 /**
  * shot.mjs – development helper for visual review.
  *
@@ -25,7 +26,7 @@ const context = await browser.newContext({
   hasTouch: width < 800,
   isMobile: width < 800,
 });
-if (opt.seen) await context.addInitScript(() => { try { sessionStorage.setItem('jh-intro', '1'); } catch {} });
+if (opt.seen) await context.addInitScript(() => { try { sessionStorage.setItem('jh-intro', '1'); } catch { /* storage blocked */ } });
 const page = await context.newPage();
 const errors = [];
 page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });

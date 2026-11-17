@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist', 'dist-ssr', 'node_modules', 'public', 'playwright-report', 'test-results', 'src/**/*.generated.ts', 'src/brand/authentic/logoGeometry.ts'] },
+  { ignores: ['dist', 'dist-ssr', 'node_modules', 'public', 'playwright-report', 'test-results', 'src/**/*.generated.ts', 'src/brand/authentic/logoGeometry.ts', 'scripts/build-logo.mjs'] },
   {
     files: ['**/*.{ts,tsx}'],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],

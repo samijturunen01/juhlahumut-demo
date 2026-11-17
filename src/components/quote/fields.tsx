@@ -69,17 +69,91 @@ interface ChoiceProps {
   onChange: (checked: boolean) => void;
   label: string;
   note?: string;
+  /** Fill the grid cell instead of sizing to content. */
+  block?: boolean;
 }
 
 /** Radio or checkbox presented as a large, touch-friendly chip. The native input stays in the DOM for semantics and keyboard use. */
-export function Choice({ type, name, value, checked, onChange, label, note }: ChoiceProps) {
+export function Choice({ type, name, value, checked, onChange, label, note, block }: ChoiceProps) {
   return (
-    <label className="relative inline-flex cursor-pointer">
+    <label className={cx('relative cursor-pointer', block ? 'flex' : 'inline-flex')}>
       <input type={type} name={name} value={value} checked={checked} onChange={(e) => onChange(e.target.checked)} className="peer sr-only" />
-      <span className={cx('chip', note && 'flex-col !items-start !gap-0.5 !rounded-2xl !px-4 !py-2.5 text-left')}>
+      <span className={cx('chip', block && 'w-full', note && 'flex-col !items-start !justify-center !gap-0.5 !rounded-2xl !px-4 !py-2.5 text-left')}>
         <span>{label}</span>
         {note && <span className="text-[0.76rem] font-normal opacity-70">{note}</span>}
       </span>
     </label>
+  );
+}
+
+interface TextFieldProps {
+  name: string;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  onBlur?: () => void;
+  required?: boolean;
+  error?: string;
+  hint?: ReactNode;
+  type?: 'text' | 'email' | 'tel';
+  autoComplete?: string;
+  inputMode?: 'text' | 'email' | 'tel';
+  multiline?: boolean;
+  maxLength?: number;
+  placeholder?: string;
+  className?: string;
+}
+
+/** Labelled text input (or textarea) with hint and error wired to aria-describedby. Its id is `field-<name>`. */
+export function TextField({
+  name,
+  label,
+  value,
+  onChange,
+  onBlur,
+  required,
+  error,
+  hint,
+  type = 'text',
+  autoComplete,
+  inputMode,
+  multiline,
+  maxLength,
+  placeholder,
+  className,
+}: TextFieldProps) {
+  const id = `field-${name}`;
+  const hintId = hint ? `${name}-hint` : undefined;
+  const errorId = error ? `${name}-error` : undefined;
+  const common = {
+    id,
+    name,
+    value,
+    required,
+    placeholder,
+    maxLength,
+    onBlur,
+    'aria-invalid': error ? true : undefined,
+    'aria-describedby': [hintId, errorId].filter(Boolean).join(' ') || undefined,
+    className: cx('field-input scroll-mt-28', multiline && 'min-h-36 resize-y'),
+  } as const;
+  return (
+    <div className={cx('min-w-0', className)}>
+      <label htmlFor={id} className="field-label">
+        {label}
+        {required ? <Required /> : <span className="ml-1.5 font-normal text-(--muted)">(vapaaehtoinen)</span>}
+      </label>
+      {multiline ? (
+        <textarea {...common} rows={5} onChange={(e) => onChange(e.target.value)} />
+      ) : (
+        <input {...common} type={type} autoComplete={autoComplete} inputMode={inputMode} onChange={(e) => onChange(e.target.value)} />
+      )}
+      {hint && (
+        <p id={hintId} className="field-hint">
+          {hint}
+        </p>
+      )}
+      <FieldError id={`${name}-error`} message={error} />
+    </div>
   );
 }

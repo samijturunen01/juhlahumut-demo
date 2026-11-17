@@ -79,7 +79,7 @@ export const pages = {
     path: '/404',
     nav: 'Sivua ei löytynyt',
     title: 'Sivua ei löytynyt – Juhlahumut',
-    description: 'Etsimääsi sivua ei löytynyt.',
+    description: 'Etsimääsi sivua ei löytynyt. Palaa Juhlahumujen etusivulle tai tutustu juhlatiloihin, hinnastoon ja catering-menuihin.',
   },
 } as const satisfies Record<string, PageMeta>;
 

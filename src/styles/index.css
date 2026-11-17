@@ -708,3 +708,121 @@ html.intro-pending [data-intro='dim'] {
     top: calc(50svh - var(--w) * 0.3356);
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Sub-page interactions                                               */
+/* ------------------------------------------------------------------ */
+
+/* Accordion body: animates its real height with grid rows – no JS measuring. */
+.collapse-rows {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.6s var(--ease-out-expo),
+    visibility 0s linear 0.6s;
+}
+
+.collapse-rows.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.6s var(--ease-out-expo),
+    visibility 0s linear 0s;
+}
+
+/* Diagonal hatching marks "priced separately" without relying on colour alone. */
+.hatch {
+  background-image: repeating-linear-gradient(135deg, rgb(26 19 16 / 0.09) 0 1px, transparent 1px 9px);
+}
+
+.hatch-strong {
+  background-image: repeating-linear-gradient(135deg, rgb(162 62 6 / 0.22) 0 1.5px, transparent 1.5px 7px);
+}
+
+/* Gallery: items rise in when the filter changes (the list is re-keyed). */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+}
+
+.gallery-item,
+.menu-panel:not([hidden]) {
+  animation: rise-in 0.7s var(--ease-out-expo) both;
+}
+
+/* Lightbox */
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes photo-in-next {
+  from {
+    opacity: 0;
+    transform: translate3d(36px, 0, 0) scale(0.985);
+  }
+}
+
+@keyframes photo-in-prev {
+  from {
+    opacity: 0;
+    transform: translate3d(-36px, 0, 0) scale(0.985);
+  }
+}
+
+.lightbox {
+  animation: lightbox-in 0.35s ease-out both;
+}
+
+.lightbox-photo {
+  transition:
+    transform 0.4s var(--ease-out-expo),
+    opacity 0.3s ease;
+}
+
+.lightbox-photo[data-direction='1'] {
+  animation: photo-in-next 0.55s var(--ease-out-expo) both;
+}
+
+.lightbox-photo[data-direction='-1'] {
+  animation: photo-in-prev 0.55s var(--ease-out-expo) both;
+}
+
+.lightbox-photo picture {
+  display: flex;
+}
+
+.lightbox-photo img {
+  max-height: min(100%, calc(100svh - 14rem));
+}
+
+/* 404 – one tube flickers once, then holds. */
+@keyframes neon-flicker {
+  0%,
+  18%,
+  22%,
+  26%,
+  60% {
+    opacity: 1;
+  }
+  20%,
+  24% {
+    opacity: 0.25;
+  }
+  62% {
+    opacity: 0.55;
+  }
+  64%,
+  100% {
+    opacity: 1;
+  }
+}
+
+.neon-404__flicker {
+  display: inline-block;
+  animation: neon-flicker 2.4s linear 0.4s 1 both;
+}
