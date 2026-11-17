@@ -1,0 +1,25 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+!.env.example
+
+# test output
+playwright-report
+test-results
+coverage
+
+# editor / OS
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+*.log
+
+# Authentic Juhlahumut logo artwork – kept LOCAL ONLY until the company confirms the right to
+# republish it. Without these files the build uses the neutral wordmark (src/brand/fallback).
+src/brand/authentic/
+assets-src/brand/
+scripts/build-logo.mjs

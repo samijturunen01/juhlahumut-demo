@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0c0908" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--app-head-->
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <script>
+      /* Runs before first paint. Decides whether motion is allowed and whether the one-off
+         homepage intro should play, so the prerendered page never flashes its final state first.
+         If the app bundle fails to load, the classes are removed again and everything is visible. */
+      (function () {
+        try {
+          var d = document.documentElement;
+          var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (reduce) return;
+          d.classList.add('motion-ok');
+          var base = '%BASE_URL%';
+          var path = location.pathname;
+          var isHome = path === base || path + '/' === base || path === base + 'index.html';
+          var seen = false;
+          try { seen = sessionStorage.getItem('jh-intro') === '1'; } catch (e) {}
+          if (isHome && !seen && !location.hash) d.classList.add('intro-pending');
+          window.__jhFailsafe = setTimeout(function () {
+            d.classList.remove('intro-pending');
+            d.classList.remove('motion-ok');
+          }, 7000);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

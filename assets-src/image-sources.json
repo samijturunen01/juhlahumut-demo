@@ -1,0 +1,29 @@
+{
+  "_comment": "Single source of truth for photographs. Every entry is an original photo from juhlahumut.fi. Used by scripts/optimize-images.mjs and docs/ASSET_PROVENANCE.md.",
+  "baseUrl": "https://juhlahumut.fi/wp-content/uploads/photo-gallery/",
+  "images": [
+    { "slug": "sali-ilta-aurinko", "file": "pikkujoulut-joensuu-catering.jpg", "path": "pikkujoulut-joensuu-catering.jpg", "description": "Alakerran sali ilta-auringossa: avotakka, tarjoilulinjasto, sohvaryhmä ja ikkunat terassille", "usage": "Etusivun hero, galleria" },
+    { "slug": "sali-takka-portaat", "file": "juhlahumut-_1034752-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034752-HDR.jpg", "description": "Sali: puukatto, avotakka, tarjoilulinjasto ja portaat yläkertaan", "usage": "Etusivun kierros, Juhlatilat, Kokoukset, galleria" },
+    { "slug": "sali-sohvat-takka", "file": "juhlahumut-_1034757-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034757-HDR.jpg", "description": "Sali: sohvaryhmä, pöytä ja avotakka ilta-auringossa", "usage": "Etusivun esittely, Juhlatilat, Hinnasto, galleria" },
+    { "slug": "sininen-sali", "file": "juhlahumut-_1034632-HDR-Pano.jpg", "path": "imported_from_media_libray/juhlahumut-_1034632-HDR-Pano.jpg", "description": "Ruokailutila: pyöreät pöydät ja riippuvalaisimet", "usage": "Etusivun kierros ja loppukehotus, Catering, galleria" },
+    { "slug": "sali-pyorea-poyta", "file": "viihtyisa-juhlatila-joensuu.jpeg", "path": "viihtyisa-juhlatila-joensuu.jpeg", "description": "Sali: pyöreä pöytä ja jouluinen somistus", "usage": "Etusivu, galleria" },
+    { "slug": "sauna", "file": "joensuu-sauna.png", "path": "joensuu-sauna.png", "description": "Tunnelmavalaistu sauna ja kiuas", "usage": "Etusivu, Juhlatilat, galleria" },
+    { "slug": "pukuhuone", "file": "saunatila.jpg", "path": "saunatila.jpg", "description": "Saunaosaston pukuhuone", "usage": "Etusivu, Juhlatilat, galleria" },
+    { "slug": "peilinurkkaus", "file": "IMG_2947.jpg", "path": "imported_from_media_libray/IMG_2947.jpg", "description": "Peilinurkkaus ja kierreportaat", "usage": "Juhlatilat, galleria" },
+    { "slug": "pelitila-panoraama", "file": "juhlahumut-_1034837-HDR-Pano.jpg", "path": "imported_from_media_libray/juhlahumut-_1034837-HDR-Pano.jpg", "description": "Yläkerran pelitila: biljardipöytä ja pelit", "usage": "Etusivun kierros, Juhlatilat, galleria" },
+    { "slug": "pelitila-parvi", "file": "juhlahumut-_1034822-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034822-HDR.jpg", "description": "Yläkerran parvi: baarijakkarat sekä voima- ja nopeuspeli", "usage": "Etusivu, Juhlatilat, galleria" },
+    { "slug": "ilmakiekko-valot", "file": "juhlahumut-_1034832-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034832-HDR.jpg", "description": "Ilmakiekkopöytä ja pelitilan valot", "usage": "Etusivu, Juhlatilat, galleria" },
+    { "slug": "ilmakiekko", "file": "juhlahumut-_1034947-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034947-HDR.jpg", "description": "Ilmakiekkopöytä lähikuvassa", "usage": "Etusivu, galleria" },
+    { "slug": "biljardi", "file": "juhlahumut-_1034907-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034907-HDR.jpg", "description": "Biljardipöytä", "usage": "Etusivu, Juhlatilat, galleria" },
+    { "slug": "flipperi-voimapeli", "file": "juhlahumut-_1034872-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034872-HDR.jpg", "description": "Flipperi ja voimapeli", "usage": "Etusivu, galleria" },
+    { "slug": "pelipoyta", "file": "juhlahumut-_1034887-HDR-Edit.jpg", "path": "imported_from_media_libray/juhlahumut-_1034887-HDR-Edit.jpg", "description": "Kosketusnäytöllinen pelipöytä", "usage": "Etusivu, galleria" },
+    { "slug": "nyrkkeilypeli", "file": "juhlahumut-_1034917-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034917-HDR.jpg", "description": "Nyrkkeilypeli", "usage": "Etusivu, galleria" },
+    { "slug": "pelikabinetti", "file": "juhlahumut-_1034937-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034937-HDR.jpg", "description": "Pelikabinetti", "usage": "Etusivu, galleria" },
+    { "slug": "voimapeli", "file": "juhlahumut-_1034952-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034952-HDR.jpg", "description": "Voimapeli", "usage": "Etusivu, galleria" },
+    { "slug": "nopeuspeli", "file": "juhlahumut-_1034957-HDR.jpg", "path": "imported_from_media_libray/juhlahumut-_1034957-HDR.jpg", "description": "Nopeuspeli", "usage": "Etusivu, galleria" }
+  ],
+  "crops": [
+    { "slug": "hero-sali", "from": "sali-ilta-aurinko", "region": { "left": 352, "top": 0, "width": 848, "height": 800 }, "description": "Rajaus etusivun heroon (sama kuva kuin sali-ilta-aurinko)" },
+    { "slug": "og-kuva", "from": "sali-sohvat-takka", "region": { "left": 0, "top": 85, "width": 1200, "height": 630 }, "jpgOnly": true, "description": "Rajaus some-jakokuvaksi (Open Graph)" }
+  ]
+}
