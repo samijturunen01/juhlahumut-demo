@@ -2,6 +2,8 @@
 
 Every photograph, logo, video, font and icon used by the demo – where it comes from and whether it may be published.
 
+**Rights basis for the logo:** see [Logo](#logo) below – publication permission granted 17.11.2026.
+
 **Rights basis for photographs:** the project owner confirmed in writing (project brief, 16.11.2026) that they have permission to use and publicly publish the photographs from Juhlahumut's existing website for this demo, including the GitHub Pages deployment. That permission covers the company's own photographs only.
 
 All photographs were downloaded once from `juhlahumut.fi` and are kept unchanged in `assets-src/originals/`. `scripts/optimize-images.mjs` only **resamples them down** into AVIF/WebP sizes in `public/images/` – nothing is generated, retouched, upscaled or AI-edited. `assets-src/image-sources.json` is the machine-readable source of this table.
@@ -37,15 +39,15 @@ All photographs were downloaded once from `juhlahumut.fi` and are kept unchanged
 | `hero-sali` | rajaus kuvasta `sali-ilta-aurinko` | Rajaus etusivun heroon (sama kuva kuin sali-ilta-aurinko) | Etusivun hero | Kuten alkuperäinen |
 | `og-kuva` | rajaus kuvasta `sali-sohvat-takka` | Rajaus some-jakokuvaksi (Open Graph) | Some-jakokuva (Open Graph) | Kuten alkuperäinen |
 
-## Logo – NOT published
+## Logo
+
+**Rights basis for the logo:** the project owner confirmed in writing (17.11.2026) that they have permission to use and publicly publish Juhlahumut's original logo, in addition to the company's photographs, including in the GitHub Pages deployment.
 
 | Item | Source | Status |
 | --- | --- | --- |
-| Juhlahumut logo (neon script, amber disc, skyline) | juhlahumut.fi media library, `wp-content/uploads/2020/01/logo.png` (the site icons `cropped-logo-*.png` are cut from it) | **Right to republish not confirmed.** Kept local only: `assets-src/brand/`, `src/brand/authentic/` and `scripts/build-logo.mjs` are listed in `.gitignore` and are not in this repository or the deployed demo. |
-| Neutral wordmark (`src/brand/fallback/LogoArt.tsx`) | Created for this demo: the name "Juhlahumut" set in Fraunces Italic, with a plain amber ring | Published. Contains no logo artwork. |
+| Juhlahumut logo (neon script, amber disc, skyline) | juhlahumut.fi media library, `wp-content/uploads/2020/01/logo.png` (the site icons `cropped-logo-*.png` are cut from it). Original kept unchanged in `assets-src/brand/logo-original.png`; vector rebuild in `src/brand/authentic/` by `scripts/build-logo.mjs` (colours, proportions, shapes and lettering preserved). | **Publication permission granted (17.11.2026).** Used in the homepage intro, header and footer. |
+| Neutral wordmark (`src/brand/fallback/LogoArt.tsx`) | Created for this demo: the name "Juhlahumut" set in Fraunces Italic, with a plain amber ring | No longer shown. Kept as a build fallback (`VITE_BRAND_LOGO=wordmark`). |
 | Favicon (`public/favicon.svg`) | Created for this demo: a dark tile with a tilted amber ellipse | Published. Not derived from the logo bitmap. |
-
-To switch the demo to the authentic logo once the company has confirmed the right to republish it, see "Enabling the authentic logo" in the README.
 
 ## Video
 

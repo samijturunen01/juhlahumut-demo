@@ -77,7 +77,7 @@ The two Christmas menus are listed one dish per line in the source. The demo gro
 9. **Occasions.** The occasions list comes from the company's own wording. "Häät" appears there only as "juhlapaikka, jossa järjestää polttarit tai häät". Confirm the company wants to promote weddings.
 10. **Upstairs "pelipöytä" (touch-screen table)** appears in the company's photos but is not named in the text. It is shown in the gallery with a neutral caption only.
 11. **Dessert and evening-snack prices** are not published. They are shown as "sopimuksen mukaan".
-12. **Logo usage** – see `ASSET_PROVENANCE.md`. The deployed demo uses a neutral wordmark until the right to republish the logo is confirmed.
+12. **Logo usage** – resolved: permission to publish the authentic logo was confirmed on 17.11.2026 and the demo uses it (see `ASSET_PROVENANCE.md`).
 
 ## Demo safeguards
 
