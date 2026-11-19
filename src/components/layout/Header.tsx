@@ -90,11 +90,12 @@ export function Header() {
         </div>
 
         <nav aria-label="Päävalikko" className="hidden lg:block">
-          <ul className="flex items-center gap-x-8 xl:gap-x-10">
+          <ul className="flex items-center gap-x-5 xl:gap-x-10">
             {mainNav.map((item) => (
               <li key={item.path}>
                 <NavLink
                   to={item.path}
+                  end
                   className={({ isActive }) =>
                     cx(
                       'group relative block py-2 text-[0.93rem] font-medium tracking-wide transition-colors duration-300',
@@ -179,7 +180,7 @@ export function Header() {
         <div className="shell relative flex min-h-full flex-col justify-between gap-10 pb-[max(2rem,env(safe-area-inset-bottom))] pt-8">
           <nav aria-label="Mobiilivalikko">
             <ul>
-              {[pages.home, ...mainNav, pages.meetings].map((item, index) => (
+              {[...mainNav, pages.meetings].map((item, index) => (
                 <li
                   key={item.path}
                   className={cx(

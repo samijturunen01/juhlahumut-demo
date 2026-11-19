@@ -22,6 +22,7 @@ export const pages = {
     title: 'Juhlahumut – Juhlatila, saunatila ja catering Joensuussa',
     description:
       'Yksityinen juhlatila Joensuussa 10–50 hengelle: sali ja avotakka, tunnelmallinen sauna, pelitila ja catering. Esimerkkihinnat alkaen 790 €. Pyydä tarjous.',
+    inMainNav: true,
     preloadImage: 'hero-sali',
   },
   venue: {
